@@ -284,6 +284,7 @@ int  main(){ /// @todo TODO maybe move this to paged flash ?
 		performSimpleGPIO();
 
 		// PWM experimentation
-		adjustPWM();
+//		adjustPWM();
+		PWMDTY0 = ADCBuffers->MAF > 2;
 	}
 }
