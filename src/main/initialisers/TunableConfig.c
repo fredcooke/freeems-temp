@@ -76,7 +76,9 @@ const volatile SmallTables1 SmallTablesAFlashV  TUNETABLESDV1 = {
 #elif CONFIG == SCAVENGER_ID
 			Axis:   ARRAY_OF_16_VOLTAGES,
 			Values: { T(7.90),  T(7.90),  T(7.90),  T(7.90),  T(7.90),  T(7.35),  T(6.95),  T(6.50),  T(6.15),  T(5.75),  T(5.48),  T(5.20),  T(4.95),  T(3.80),  T(2.85),  T(2.00)}
-
+#elif CONFIG == JOSHSB18MINI_ID
+			Axis:   ARRAY_OF_16_VOLTAGES,
+			Values: { T(2.00),  T(1.80),  T(1.60),  T(1.50),  T(1.40),  T(1.30),  T(1.20),  T(1.10),  T(1.00),  T(1.00),  T(1.00),  T(1.00),  T(1.00),  T(0.90),  T(0.70),  T(0.50)}
 #else
 			Axis:   ARRAY_OF_16_VOLTAGES,
 			Values: ARRAY_OF_16_DWELLS

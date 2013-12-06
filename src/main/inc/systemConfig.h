@@ -68,6 +68,7 @@
 //efine VOLVERC_ID      22 // Em-knaps' 1994 B5234T Volvo engine
 //efine TOXICTACOMA_ID  23 // Jeff's 2003 Toyota Tacoma
 //efine AITOR51_ID      24 // Aitor's 1992 Sierra XR4i 2.0 Turbo
+#define JOSHSB18MINI_ID 27 // Josh's LS-VTEC B18A1/B16A powered mini
 
 
 // Convert labels into IDs for use in code and set the ID string
@@ -142,6 +143,9 @@
 #elif defined AITOR51
 #define CONFIG AITOR51_ID
 #define PRELIM_CONFIG "AITOR51"
+#elif defined JOSHSB18MINI
+#define CONFIG JOSHSB18MINI_ID
+#define PRELIM_CONFIG "JOSHSB18MINI"
 #elif defined CLIFLAGS && !(defined XGATE)
 #error "CLIFLAGS defined, but no build matched! Not allowing config to fall back to default!"
 #define CONFIG -1

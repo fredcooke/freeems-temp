@@ -73,6 +73,9 @@ const volatile fixedConfig1 fixedConfigs1 FIXEDCONF1 = {
 #elif CONFIG == SCAVENGER_ID
 		perCylinderVolume:  CYLINDER_VOLUME(399.25),
 		injectorFlow:       CC_PER_MINUTE(540),
+#elif CONFIG == JOSHSB18MINI_ID
+		perCylinderVolume:  CYLINDER_VOLUME(458.5),
+		injectorFlow:       CC_PER_MINUTE(525), // 50lb GM injectors, says Josh
 #else
 		perCylinderVolume:  CYLINDER_VOLUME(500),
 		injectorFlow:       CC_PER_MINUTE(550),
@@ -196,6 +199,14 @@ const volatile fixedConfig1 fixedConfigs1 FIXEDCONF1 = {
 		numberOfConfiguredOutputEvents:              8, // See two lines above
 		numberOfInjectionsPerEngineCycle:            2  // Semi-sequential, for now.
 
+#elif CONFIG == JOSHSB18MINI_ID
+		anglesOfTDC: {ANGLE(0), ANGLE(180), ANGLE(360), ANGLE(540), ANGLE(0), ANGLE(180), ANGLE(360), ANGLE(540)},
+		outputEventPinNumbers:       {0,1,2,3,4,5,4,5}, // COP with semi-sequential fueling
+		schedulingConfigurationBits: {0,0,0,0,1,1,1,1}, // First four ignition, last four injection
+		decoderEngineOffset:               ANGLE(0.00), // TODO
+		numberOfConfiguredOutputEvents:              8, // See two lines above
+		numberOfInjectionsPerEngineCycle:            2  // Semi-sequential, for now.
+
 #else // Nothing scheduled by default, no sensible default for all possible vehicle setups.
 		anglesOfTDC:                            {}, // Depends on cylinder count and other variables
 		outputEventPinNumbers:       {0,1,2,3,4,5}, // Default to a variety of pins for testing purposes. Note: Won't do anything without
@@ -219,6 +230,9 @@ const volatile fixedConfig1 fixedConfigs1 FIXEDCONF1 = {
 #elif CONFIG == SCAVENGER_ID
 			disableThreshold:  RPM(7200),
 			reenableThreshold: RPM(7150)
+#elif CONFIG == JOSHSB18MINI_ID
+			disableThreshold:  RPM(9000),
+			reenableThreshold: RPM(8800)
 #else
 			disableThreshold:  RPM(5000),
 			reenableThreshold: RPM(4900)  // Come back on before ignition does
@@ -246,6 +260,9 @@ const volatile fixedConfig1 fixedConfigs1 FIXEDCONF1 = {
 #elif CONFIG == SCAVENGER_ID
 			disableThreshold:  RPM(7200),
 			reenableThreshold: RPM(7100)
+#elif CONFIG == JOSHSB18MINI_ID
+			disableThreshold:  RPM(6000),
+			reenableThreshold: RPM(5900)
 #else
 			disableThreshold:  RPM(5000),
 			reenableThreshold: RPM(4800)  // Come back on after injection does
@@ -258,8 +275,13 @@ const volatile fixedConfig1 fixedConfigs1 FIXEDCONF1 = {
 		cutsEnabled:{
 			InjectionRPM: 1,
 			IgnitionRPM:  1,
+#if CONFIG == JOSHSB18MINI_ID
+			InjOverBoost: 0,
+			IgnOverBoost: 0,
+#else
 			InjOverBoost: 1,
 			IgnOverBoost: 1,
+#endif
 			Spare0: 1,
 			Spare1: 1,
 			Spare2: 1,
