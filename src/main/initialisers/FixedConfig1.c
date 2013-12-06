@@ -201,7 +201,7 @@ const volatile fixedConfig1 fixedConfigs1 FIXEDCONF1 = {
 
 #elif CONFIG == JOSHSB18MINI_ID
 		anglesOfTDC: {ANGLE(0), ANGLE(180), ANGLE(360), ANGLE(540), ANGLE(0), ANGLE(180), ANGLE(360), ANGLE(540)},
-		outputEventPinNumbers:       {0,1,2,3,4,5,4,5}, // COP with semi-sequential fueling
+		outputEventPinNumbers:       {0,2,3,1,4,5,4,5}, // COP with semi-sequential fueling
 		schedulingConfigurationBits: {0,0,0,0,1,1,1,1}, // First four ignition, last four injection
 		decoderEngineOffset:               ANGLE(0.00), // TODO
 		numberOfConfiguredOutputEvents:              8, // See two lines above
