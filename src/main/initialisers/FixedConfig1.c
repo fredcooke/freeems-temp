@@ -196,10 +196,10 @@ const volatile fixedConfig1 fixedConfigs1 FIXEDCONF1 = {
       numberOfConfiguredOutputEvents:              8, // See two lines above
       numberOfInjectionsPerEngineCycle:            2  // Semi-sequential, for now.
 
-#elif CONFIG == OLLIDATSUN_I // Firing order 1-5-3-6-2-4 (280Z Manual)
+#elif CONFIG == OLLIDATSUN_ID // Firing order 1-5-3-6-2-4 (280Z Manual)
       anglesOfTDC: {ANGLE(0), ANGLE(120), ANGLE(240), ANGLE(360), ANGLE(480), ANGLE(600), ANGLE(0), ANGLE(120), ANGLE(240), ANGLE(360), ANGLE(480), ANGLE(600)},
       outputEventPinNumbers:       {0,1,2,0,1,2,3,4,3,4,3,4}, // Wasted spark, semi-sequential TODO migrate this to sequential
-      schedulingConfigurationBits: {0,0,0,0,0,0,1,1,1,1,1,1}, // First four ignition, last four injection
+      schedulingConfigurationBits: {0,0,0,0,0,0,1,1,1,1,1,1}, // 
       decoderEngineOffset:                       ANGLE(0.00), // initial setup value, will change a bit
       numberOfConfiguredOutputEvents:                     6, // See two lines above
       numberOfInjectionsPerEngineCycle:                    3  // Recommended by Fred
