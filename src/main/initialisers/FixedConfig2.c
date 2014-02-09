@@ -216,7 +216,7 @@ const volatile fixedConfig2 fixedConfigs2 FIXEDCONF2 = {
 		PortDirectionT: 0xFF  // Ignored! TODO: Overridden for precision timed outputs
 	},
 	decoderSettings:{
-		syncConfirmationsRunning: 10, // This number is arbitrary, add an if block and configure to taste.
+		syncConfirmationsRunning: 1, // This number is arbitrary, add an if block and configure to taste.
 		syncConfirmationsStarting: 0, // Most users should leave this zero, however having it set to 1 or 2 could be beneficial
 #if CONFIG == HOTEL_ID
 		accelerationInputEventTimeTolerance: ACCEL_TIME_TOL(100), // once started this needs a lot less... fix
@@ -225,6 +225,9 @@ const volatile fixedConfig2 fixedConfigs2 FIXEDCONF2 = {
 		accelerationInputEventTimeTolerance: ACCEL_TIME_TOL(100),
 		decelerationInputEventTimeTolerance: DECEL_TIME_TOL(100),
 #elif CONFIG == SCAVENGER_ID
+		accelerationInputEventTimeTolerance: ACCEL_TIME_TOL(100),
+		decelerationInputEventTimeTolerance: DECEL_TIME_TOL(100),
+#elif CONFIG == OLLIDATSUN_ID
 		accelerationInputEventTimeTolerance: ACCEL_TIME_TOL(100),
 		decelerationInputEventTimeTolerance: DECEL_TIME_TOL(100),
 #else
